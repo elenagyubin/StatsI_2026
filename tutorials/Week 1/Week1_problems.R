@@ -1,5 +1,6 @@
 # remove objects
 rm(list=ls())
+
 # detach all libraries
 detachAllPackages <- function() {
   basic.packages <- c("package:stats","package:graphics","package:grDevices","package:utils","package:datasets","package:methods","package:base")
@@ -9,6 +10,8 @@ detachAllPackages <- function() {
 }
 detachAllPackages()
 
+# the above are just stock reset instructions we run every time 
+
 #############
 # Basic stats
 #############
@@ -17,13 +20,23 @@ detachAllPackages()
 y <- c(0, 4, 4, 5, 7, 10)
 
 # (1) find sum of y using the built-in R function
+sum(y)
 
 # (2) find mean of y using your "own" function
+sum(y)/length(y)
+
 # now do the same thing, but faster using the built-in R function
+mean(y)
 
 # (3) find sum of demeaned values
+# demean ≈ deviation (?)
+y - mean(y)
+demeaned_values <- y - mean(y)
+sum(demeaned_values)
 
 # (4) calculate sum of squared error
+squared_error <- demeaned_values^2
+sum(squared_error)
 
 ###########
 # Quantiles
